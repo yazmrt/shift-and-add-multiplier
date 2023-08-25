@@ -1,0 +1,13 @@
+0.7
+2020.2
+Nov 18 2020
+09:47:47
+C:/Users/yazmr/OneDrive/Masast/Vivado Codes/shift_add/shift_add.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,,,,,,,
+C:/Users/yazmr/OneDrive/Masast/Vivado Codes/shift_add/shift_add.srcs/sim_1/new/tb_ShiftAdd_Top.v,1692993239,verilog,,,,tb_ShiftAdd_Top,,,,,,,,
+C:/Users/yazmr/OneDrive/Masast/Vivado Codes/shift_add/shift_add.srcs/sources_1/new/FullAdder.v,1692895734,verilog,,C:/Users/yazmr/OneDrive/Masast/Vivado Codes/shift_add/shift_add.srcs/sources_1/new/ShiftAdd_Top.v,,FullAdder,,,,,,,,
+C:/Users/yazmr/OneDrive/Masast/Vivado Codes/shift_add/shift_add.srcs/sources_1/new/ShiftAdd_Top.v,1692986854,verilog,,C:/Users/yazmr/OneDrive/Masast/Vivado Codes/shift_add/shift_add.srcs/sources_1/new/and_gate.v,,ShiftAdd_Top,,,,,,,,
+C:/Users/yazmr/OneDrive/Masast/Vivado Codes/shift_add/shift_add.srcs/sources_1/new/and_gate.v,1692895976,verilog,,C:/Users/yazmr/OneDrive/Masast/Vivado Codes/shift_add/shift_add.srcs/sources_1/new/dff.v,,and_gate,,,,,,,,
+C:/Users/yazmr/OneDrive/Masast/Vivado Codes/shift_add/shift_add.srcs/sources_1/new/dff.v,1692895720,verilog,,C:/Users/yazmr/OneDrive/Masast/Vivado Codes/shift_add/shift_add.srcs/sources_1/new/mult_control.v,,dff,,,,,,,,
+C:/Users/yazmr/OneDrive/Masast/Vivado Codes/shift_add/shift_add.srcs/sources_1/new/mult_control.v,1692989760,verilog,,C:/Users/yazmr/OneDrive/Masast/Vivado Codes/shift_add/shift_add.srcs/sources_1/new/serialAdder.v,,mult_control,,,,,,,,
+C:/Users/yazmr/OneDrive/Masast/Vivado Codes/shift_add/shift_add.srcs/sources_1/new/serialAdder.v,1692993414,verilog,,C:/Users/yazmr/OneDrive/Masast/Vivado Codes/shift_add/shift_add.srcs/sources_1/new/shift_reg.v,,serialAdder,,,,,,,,
+C:/Users/yazmr/OneDrive/Masast/Vivado Codes/shift_add/shift_add.srcs/sources_1/new/shift_reg.v,1692895784,verilog,,C:/Users/yazmr/OneDrive/Masast/Vivado Codes/shift_add/shift_add.srcs/sim_1/new/tb_ShiftAdd_Top.v,,shift_reg,,,,,,,,

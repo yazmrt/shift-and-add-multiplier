@@ -1,0 +1,16 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../shift_add.srcs/sources_1/new/FullAdder.v" \
+"../../../../shift_add.srcs/sources_1/new/ShiftAdd_Top.v" \
+"../../../../shift_add.srcs/sources_1/new/and_gate.v" \
+"../../../../shift_add.srcs/sources_1/new/dff.v" \
+"../../../../shift_add.srcs/sources_1/new/mult_control.v" \
+"../../../../shift_add.srcs/sources_1/new/serialAdder.v" \
+"../../../../shift_add.srcs/sources_1/new/shift_reg.v" \
+"../../../../shift_add.srcs/sim_1/new/tb_ShiftAdd_Top.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
