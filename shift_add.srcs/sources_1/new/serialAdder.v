@@ -81,7 +81,7 @@ idle: begin
     end
     else 
 	state <= idle;
-    end
+end
 
 load: begin
     load_reg <= 1;
@@ -106,6 +106,7 @@ shift: begin
 	state <= idle;
     end
 end
+default: state <= idle; 
 endcase
 end
 end
