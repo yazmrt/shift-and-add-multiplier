@@ -118,6 +118,7 @@ HaltS: begin
 	start_reg <= 0;
 	state <= HaltS; 
 end
+default: state <= IdleS;
 endcase
 end
 end
