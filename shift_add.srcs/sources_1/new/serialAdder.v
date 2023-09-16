@@ -63,48 +63,48 @@ if (reset == 0)  begin
     shift_reg <= 0;
     load_reg <= 0;
     sum_reg <= 0;
-	flag_o <= 0;
-	carry_o <= 0;
-	state <= idle;
+    flag_o <= 0;
+    carry_o <= 0;
+    state <= idle;
 end
 else begin
 case (state)
 idle: begin
     load_reg <= 0;
     shift_reg <= 0;
-	sum_reg <= 0;
-	flag_o <= 0;
-	if (start_i) begin
+    sum_reg <= 0;
+    flag_o <= 0;
+    if (start_i) begin
 	counter <= DATA_WIDTH+1;
 	flag_o <= 0;
 	state <= load;
-	end
-	else 
+    end
+    else 
 	state <= idle;
-end
+    end
 
 load: begin
     load_reg <= 1;
     shift_reg <= 0;
-	state <= shift;
+    state <= shift;
 end
 
 shift: begin
-	if (counter != 0) begin
-    load_reg <= 0;
-    shift_reg <= 1;
-    counter <= counter -1;
-    sum_reg <= {regc_o, sum_reg[DATA_WIDTH-1:1]};
+    if (counter != 0) begin
+    	load_reg <= 0;
+    	shift_reg <= 1;
+    	counter <= counter -1;
+    	sum_reg <= {regc_o, sum_reg[DATA_WIDTH-1:1]};
 	carry_o <= dff_in;
 	state <= shift;
-	end
-	else begin
+    end
+    else begin
 	counter <= 0;
 	load_reg <= 0;
 	shift_reg <= 0;
 	flag_o <= 1;
 	state <= idle;
-	end
+    end
 end
 endcase
 end
