@@ -24,7 +24,6 @@
 module mult_control #(parameter N = 8) 
 (
 input clk, 
-input reset, 
 input Q_0,
 input flag_i,
 output start_o, 
@@ -38,28 +37,18 @@ reg [4:0] state;
 reg start_reg;
 reg write_reg;
 reg shift_reg;
-reg load_reg;
+reg load_reg = 1'b1;
 localparam IdleS=5'b00001, TestS=5'b00010, AddS=5'b00100, ShiftS=5'b01000, HaltS=5'b10000;
 
-reg [N-1:0] Count; //iteration count
+reg [N-1:0] Count = 0; //iteration count
 reg [1:0] start_count; //stops the count after 2 iteration
 wire C_0; // C_0 = 1 if count < N
 
 assign C_0 = (Count == N-1) ? 1 : 0; //detect Nth iteration
 
-
 always @(posedge clk) begin
-if (!reset) begin
-	start_reg <= 0;
-	write_reg <= 0;
-	shift_reg <= 0; 
-	load_reg <= 1;
-	state <= IdleS; 
-	Count <= 0;
-end
-else begin
-case (state) 
 
+case (state) 
 IdleS: begin
     load_reg <= 0;
     start_reg <= 0;
@@ -121,7 +110,7 @@ end
 default: state <= IdleS;
 endcase
 end
-end
+
 
 assign load_o = load_reg;
 assign start_o = start_reg; 

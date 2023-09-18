@@ -22,17 +22,13 @@
 
 module dff( 
 input clk,
-input reset,
 input data_i,
 output data_o);
 
-reg reg_o;
+reg reg_o = 0;
 
 always @(posedge clk) begin 
-    if (!reset) 
-        reg_o <= 0;
-    else
-        reg_o <= data_i;
+    reg_o <= data_i;
 end
 
 assign data_o = reg_o;

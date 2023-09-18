@@ -24,13 +24,12 @@ module serialAdder
 #(parameter DATA_WIDTH = 8)
 ( 
 input clk,
-input reset,
 input [DATA_WIDTH-1:0] a_i,
 input [DATA_WIDTH-1:0] b_i,
 input start_i, // starts the addition process
 output reg [DATA_WIDTH-1:0] sum_reg,
 output reg flag_o, // indicates that addition is done
-output reg carry_o
+output reg carry_o = 0
 );
 
 reg shift_reg; //signal for shifting registers
@@ -44,30 +43,20 @@ localparam idle = 3'b001;
 localparam load = 3'b010;
 localparam shift = 3'b100;
 
-reg [DATA_WIDTH:0] counter;
+reg [DATA_WIDTH:0] counter = 0;
 reg [2:0] state;
 
 // module instantiations
-shift_reg #(DATA_WIDTH) A(clk, reset, shift_reg, load_reg, a_i, 1'b0, rega_o);
-shift_reg #(DATA_WIDTH) B(clk, reset, shift_reg, load_reg, b_i, 1'b0, regb_o);
+shift_reg #(DATA_WIDTH) A(clk, shift_reg, load_reg, a_i, 1'b0, rega_o);
+shift_reg #(DATA_WIDTH) B(clk, shift_reg, load_reg, b_i, 1'b0, regb_o);
 
 FullAdder fa(rega_o[0], regb_o[0], dff_out, regc_o, dff_in);
 
-dff D(and_o, reset, dff_in, dff_out);
+dff D(and_o, dff_in, dff_out);
 
 and_gate AND(shift_i, clk, and_o);
 
 always @(posedge clk) begin
-if (reset == 0)  begin
-    counter <= 0;
-    shift_reg <= 0;
-    load_reg <= 0;
-    sum_reg <= 0;
-    flag_o <= 0;
-    carry_o <= 0;
-    state <= idle;
-end
-else begin
 case (state)
 idle: begin
     load_reg <= 0;
@@ -108,6 +97,5 @@ shift: begin
 end
 default: state <= idle; 
 endcase
-end
 end
 endmodule
